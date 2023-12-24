@@ -1,0 +1,119 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="index.css"/>
+        <style>
+            .liuliu {
+                align-items: center;
+                z-index: 0;
+                font-family: monospace;
+                font-size: 66;
+            }
+            .yundong {
+                width: 82;
+                height: 150;
+                background: url(01270b35b8f69ecd248f7e2c87c8e26.png) no-repeat;
+                z-index: 1;
+                position: absolute;
+                top: 625;
+
+                animation: move 3s steps(9) infinite;
+            }
+
+            canvas {
+                                                        width: 100%;
+                                                        height: 100%;
+                                                        margin: 0;
+                                                        padding: 0;
+                                                        
+                                                   }
+
+            @keyframes move {
+                from{
+                    background-position: 0 0;
+                }
+                to{
+                    background-position: -990px 0;
+                }
+            }
+        </style>
+    </head>
+    <body bgcolor="6b488c">
+        <div>元旦快乐,希望能接中自己的梦想</div>
+        <div class="yundong">
+        </div>
+        <div class="container">
+            <canvas id="canvas"></canvas>
+                               <script>
+                                        window.onload = function () {
+                                                         var canvas = document.getElementById("canvas");
+                                                        canvas.width = window.innerWidth;
+                                                       canvas.height = window.innerHeight;
+                                                         var cxt = canvas.getContext("2d");
+
+
+                                                     var gradient = cxt.createRadialGradient(100, 100, 80, 200, 200, 500)
+                                                       //径向渐变
+                                                           gradient.addColorStop(0, 'rgb(255,255,134)')
+                                                        gradient.addColorStop(0.01, 'rgb(70,70,80)')
+                                                    gradient.addColorStop(0.2, 'rgb(40,40,50)')
+                                                  gradient.addColorStop(0.4, 'rgb(20,20,30)')
+                                                       gradient.addColorStop(1, 'rgb(0,0,10)')
+                                                         cxt.save()
+                                                    cxt.fillStyle = gradient
+                                     cxt.fillRect(0, 0, window.innerWidth, window.innerHeight);
+                                 cxt.restore()
+                                   var count=0
+                                                function animate() {
+if(count%20==0){
+var length = a.length;
+for (let i = 0; i < length; i++) {
+var rr = Math.random()
+var r = a[i][0]
+var R = a[i][1]
+var x = a[i][2]
+var y = a[i][3]
+var cxt = a[i][4]
+if (rr > 0.5) {
+fillStar(r, R * rr, x, y, cxt)
+} else {
+fillStar(r, R * 2, x, y, cxt)
+}
+}
+}
+count++
+requestAnimationFrame(animate)
+
+}
+}
+
+function fillStar(r, R, x, y, cxt) {
+cxt.fillStyle = "white";
+cxt.beginPath();
+for (i = 0; i < 5; i++) {
+cxt.lineTo(Math.cos((15 + i * 72) / 180 * Math.PI) * R + x, -Math.sin((15 + i * 72) / 180 * Math.PI) * R + y);
+cxt.lineTo(Math.cos((55 + i * 72) / 180 * Math.PI) * r + x, -Math.sin((55 + i * 72) / 180 * Math.PI) * r + y);
+}
+
+cxt.closePath();
+cxt.fill();
+cxt.stroke();
+}
+        </script>
+<div class="line" style="--color:#ec3e27;--x:3;--z:3;--d:1;"></div>
+<div class="line" style="--color:#fff;--x:3;--z:2;--d:2;"></div>
+<div class="line" style="--color:#fff;--x:4;--z:1;--d:3;"></div>
+<div class="line" style="--color:#fd79a8;--x:4;--z:0;--d:1;"></div>
+<div class="line" style="--color:#fff;--x:6;--z:-1;--d:2;"></div>
+<div class="line" style="--color:#0984e3;--x:6;--z:-2;--d:3;"></div>
+<div class="line" style="--color:#fff;--x:8;--z:-3;--d:1;"></div>
+<div class="line" style="--color:#fff;--x:10;--z:-4;--d:2;"></div>
+<div class="line" style="--color:#fff;--x:12;--z:-5;--d:3;"></div>
+<div class="line" style="--color:#fff;--x:14;--z:-6;--d:1;"></div>
+<div class="line" style="--color:#fff;--x:16;--z:-7;--d:2;"></div>
+<div class="line" style="--color:#fff;--x:18;--z:-8;--d:3;"></div>
+<div class="line" style="--color:#e056fd;--x:20;--z:-9;--d:1;"></div>
+
+
+</div>
+    </body>
+</html>
